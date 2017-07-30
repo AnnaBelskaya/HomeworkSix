@@ -70,6 +70,7 @@ public class SnowMan {
                 body[i] = new Circle(x, y, radius,
                         Paint.valueOf("#FFFFFF"));
             }
+            body[i].setStroke(Paint.valueOf("#00000050"));
         }
     }
 

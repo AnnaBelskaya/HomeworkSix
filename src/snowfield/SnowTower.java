@@ -57,6 +57,7 @@ public class SnowTower {
                 body[i] = new Circle(Main.WIDTH/2+50, y, radius,
                         Paint.valueOf(getColor().toString()));
             }
+            body[i].setStroke(Paint.valueOf("#000000"));
         }
     }
 
