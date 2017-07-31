@@ -20,16 +20,16 @@ public class GUISnowman {
     }
 
     public void addGUISnowman(){
-        setSnowMan();
-        addBuildSnowman();
-        addRuinSnowman();
-        addPaintRed();
+        createSnowManClass();
+        addBuildSnowmanButton();
+        addRuinSnowmanButton();
+        addGradientButton();
 
         root.getChildren().addAll(buildSnowman, ruinSnowman,
                 addGradient, addHorizontalSeparator());
     }
 
-    private void addBuildSnowman(){
+    private void addBuildSnowmanButton(){
         buildSnowman.setText("Build\nsnowman");
         buildSnowman.setTextAlignment(TextAlignment.CENTER);
         buildSnowman.setFont(Font.font("Verdana", FontPosture.REGULAR, 11));
@@ -45,7 +45,7 @@ public class GUISnowman {
         });
     }
 
-    private void addRuinSnowman(){
+    private void addRuinSnowmanButton(){
         ruinSnowman.setText("Ruin\nsnowman");
         ruinSnowman.setTextAlignment(TextAlignment.CENTER);
         ruinSnowman.setFont(Font.font("Verdana", FontPosture.REGULAR, 11));
@@ -58,7 +58,7 @@ public class GUISnowman {
         });
     }
 
-    private void addPaintRed() {
+    private void addGradientButton() {
         addGradient.setText("Make snowman dirty");
         addGradient.setTextAlignment(TextAlignment.CENTER);
         addGradient.setFont(Font.font("Verdana", FontPosture.REGULAR, 11));
@@ -73,7 +73,7 @@ public class GUISnowman {
         });
     }
 
-    private void setSnowMan(){
+    private void createSnowManClass(){
         snowMan = new SnowMan(root);
     }
 

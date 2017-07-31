@@ -30,13 +30,13 @@ public class GUISnowTower {
 
     public void drawSnowTowerInterface(){
         root.setStyle("-fx-background: #6495ED;");
-        addBuildButton();
-        addRuinButton();
-        addPaintRed();
+        addBuildTowerButton();
+        addRuinTowerButton();
+        addPaintTowerRedButton();
         root.getChildren().addAll(buildTower,ruinTower,paintRed);
-        setNumber();
-        setMinRadius();
-        setMaxRadius();
+        addTextFieldNumber();
+        addTextFieldMinRadius();
+        addTextFieldMaxRadius();
         root.getChildren().addAll(number,maxRadius,minRadius,
                 addHorizontalSeparator(),
                 addLabel(10,15, "Circles amount:"),
@@ -45,7 +45,7 @@ public class GUISnowTower {
     }
 
 
-    private void addBuildButton(){
+    private void addBuildTowerButton(){
         buildTower.setText("Build\ntower");
         buildTower.setTextAlignment(TextAlignment.CENTER);
         buildTower.setFont(Font.font("Verdana", FontPosture.REGULAR, 11));
@@ -55,7 +55,7 @@ public class GUISnowTower {
         buildTower.setMinSize(50, 50);
 
         buildTower.setOnMouseClicked(event -> {
-            setSnowTower();
+            createSnowTowerClass();
             try {
                 snowTower.ruinTower();
             } catch (NullPointerException e){ }
@@ -69,7 +69,7 @@ public class GUISnowTower {
         });
     }
 
-    private void addRuinButton() {
+    private void addRuinTowerButton() {
         ruinTower.setText("Ruin\ntower");
         ruinTower.setTextAlignment(TextAlignment.CENTER);
         ruinTower.setFont(Font.font("Verdana", FontPosture.REGULAR, 11));
@@ -86,7 +86,7 @@ public class GUISnowTower {
 
     }
 
-    private void addPaintRed() {
+    private void addPaintTowerRedButton() {
         paintRed.setText("Make the tower red");
         paintRed.setTextAlignment(TextAlignment.CENTER);
         paintRed.setFont(Font.font("Verdana", FontPosture.REGULAR, 11));
@@ -101,28 +101,28 @@ public class GUISnowTower {
         });
     }
 
-    private void setNumber(){
+    private void addTextFieldNumber(){
         number.setPromptText("1-10");
         number.setMaxSize(60,10);
         number.setTranslateX(110);
         number.setTranslateY(10);
     }
 
-    private void setMinRadius(){
+    private void addTextFieldMinRadius(){
         minRadius.setPromptText("1");
         minRadius.setMaxSize(60,10);
         minRadius.setTranslateX(110);
         minRadius.setTranslateY(40);
     }
 
-    private void setMaxRadius(){
+    private void addTextFieldMaxRadius(){
         maxRadius.setPromptText("50");
         maxRadius.setMaxSize(60,10);
         maxRadius.setTranslateX(110);
         maxRadius.setTranslateY(70);
     }
 
-    private void setSnowTower(){
+    private void createSnowTowerClass(){
         try {
             snowTower = new SnowTower(root,
                     Integer.parseInt(number.getText()),

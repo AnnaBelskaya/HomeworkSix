@@ -24,13 +24,13 @@ public class GUIStar {
     }
     
     public void drawGUIStar(){
-        addStar();
-        addRuinStar();
-        addNightMode();
+        addDrawStarButton();
+        addRuinStarButton();
+        addNightModeButton();
 
-        setCenterX();
-        setCenterY();
-        setStarRadius();
+        addTextFieldCenterX();
+        addTextFieldCenterY();
+        addTextFieldStarRadius();
 
         root.getChildren().addAll(drawStar,ruinStar, nightMode);
         root.getChildren().addAll(centerX,centerY,starRadius,
@@ -39,7 +39,7 @@ public class GUIStar {
                 addLabel(61,425, "Radius:"));
     }
     
-    private void addStar() {
+    private void addDrawStarButton() {
         drawStar.setText("Draw\nstar");
         drawStar.setTextAlignment(TextAlignment.CENTER);
         drawStar.setFont(Font.font("Verdana", FontPosture.REGULAR, 11));
@@ -48,14 +48,14 @@ public class GUIStar {
         drawStar.setMinSize(60, 40);
 
         drawStar.setOnMouseClicked(event -> {
-            setStar();
+            createStarClass();
             try {
                 star.drawStar();
             } catch (NullPointerException e){ }
         });
     }
 
-    private void addRuinStar(){
+    private void addRuinStarButton(){
         ruinStar.setText("Ruin\nstar");
         ruinStar.setTextAlignment(TextAlignment.CENTER);
         ruinStar.setFont(Font.font("Verdana", FontPosture.REGULAR, 11));
@@ -70,7 +70,7 @@ public class GUIStar {
         });
     }
 
-    private void addNightMode() {
+    private void addNightModeButton() {
         nightMode.setText("Turn the night mode on");
         nightMode.setTextAlignment(TextAlignment.CENTER);
         nightMode.setFont(Font.font("Verdana", FontPosture.REGULAR, 11));
@@ -89,28 +89,28 @@ public class GUIStar {
         });
     }
     
-    private void setCenterX(){
+    private void addTextFieldCenterX(){
         centerX.setPromptText("300-600");
         centerX.setMaxSize(60,10);
         centerX.setTranslateX(110);
         centerX.setTranslateY(360);
     }
 
-    private void setCenterY(){
+    private void addTextFieldCenterY(){
         centerY.setPromptText(">R");
         centerY.setMaxSize(60,10);
         centerY.setTranslateX(110);
         centerY.setTranslateY(390);
     }
 
-    private void setStarRadius(){
+    private void addTextFieldStarRadius(){
         starRadius.setPromptText("1-100");
         starRadius.setMaxSize(60,10);
         starRadius.setTranslateX(110);
         starRadius.setTranslateY(420);
     }
 
-    private void setStar(){
+    private void createStarClass(){
         try {
             star = new Star(root,
                     Double.parseDouble(centerX.getText()),
